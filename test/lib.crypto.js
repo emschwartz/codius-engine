@@ -41,4 +41,16 @@ describe('lib/crypto', function(){
 
   });
 
+  describe('getPublicKey', function(){
+
+    it('should return the correct public key for a given private key', function(){
+      var private_key = '7b933e48f5ac6078f769c39909d50c78eeaa863b10710634a3b11fbc10444c4b';
+      var public_key = '04f032a32d610285710e15eb2e66e2bef85ae209984cbb5361d51d403927ceab05385ebccfa0c7b13f86e5faf20ad6ecff4a6947e39cfa89a761f4be921d2da4ad';
+      // Public key derived using https://github.com/matja/bitcoin-tool, implemented in C
+
+      expect(crypto.getPublicKey(private_key)).to.equal(public_key);
+    });
+
+  });
+
 });
